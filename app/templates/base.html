@@ -1,0 +1,17 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - BrownieBlog</title>
+      {% else %}
+      <title>Welcome to BrownieBlog</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>BrownieBlog: 
+            <a href="/index">Home</a>
+            <a href="/catalogue">Catalogue</a>
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

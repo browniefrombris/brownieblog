@@ -12,4 +12,7 @@ def index():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static', 'images'), 'favicon.ico', mimetype = 'image/png')
 
+@app.route('/catalogue')
+def catalogue():
+	return render_template('catalogue.html')
 

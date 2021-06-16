@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, url_for
 import os
 
 @app.route('/')
@@ -10,7 +10,7 @@ def index():
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static', 'images'), 'favicon.ico', mimetype = 'image/png')
+    return send_from_directory(os.path.join(app.root_path, 'static', 'images'), 'B_logo.ico', mimetype = 'image/png')
 
 @app.route('/catalogue')
 def catalogue():

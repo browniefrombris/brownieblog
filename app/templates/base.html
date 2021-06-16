@@ -1,17 +1,30 @@
 <html>
     <head>
-      {% if title %}
-      <title>{{ title }} - BrownieBlog</title>
-      {% else %}
-      <title>Welcome to BrownieBlog</title>
-      {% endif %}
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/main.css')}}">
+        
+        <!-- The below line operates the same as the above:
+            <link rel="stylesheet" href="/static/styles/main.css"> -->
+
+        {% if title %}
+        <title>{{ title }} - BrownieBlog</title>
+        {% else %}
+        <title>Welcome to BrownieBlog</title>
+        {% endif %}
     </head>
     <body>
-        <div>BrownieBlog: 
-            <a href="/index">Home</a>
-            <a href="/catalogue">Catalogue</a>
-        </div>
-        <hr>
+        <header>
+            <div>BrownieBlog: 
+                <a href="/index">Home</a>
+                <a href="/catalogue">Catalogue</a>
+                <a href="https://github.com/browniefrombris/brownieblog">
+                    <img alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20" style="float:right"></a>
+            </div>
+        </header>
+
+        <hr style="width:50%; height:2px; border-width:0; color:black; background-color:black"> 
+
         {% block content %}{% endblock %}
+        
     </body>
 </html>
+

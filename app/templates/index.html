@@ -2,7 +2,10 @@
 
 {% block content %}
     <h1>Hi, {{ user.username }}!</h1>
-    {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
+    <!-- <a href="https://github.com/browniefrombris/brownieblog">
+        <img alt="brownielogo" src="{{url_for('static', filename='images/B_logo.ico')}}" width="150" height ="70">
+    </a>
+    <a href="https://github.com/browniefrombris/brownieblog">
+        <img alt="brownielogo2" src="/static/images/B_logo.ico">
+    </a> -->
 {% endblock %}

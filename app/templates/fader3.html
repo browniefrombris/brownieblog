@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>
+        Fader 2
+    </title>
+  
+    <style>
+        body {
+            opacity: 1;
+            transition: 1s opacity;
+            }
+
+        body.fade-out {
+            opacity: 0;
+            transition: none;
+            }
+    </style>
+</head>
+  
+<body>
+    <script>
+        document.body.classList.add('fade-out');
+        window.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.remove('fade-out');
+            });
+      </script>
+      
+    <h1 style="color: red">
+        GeeksForGeeks
+    </h1>
+      
+    <b>
+        How to create fade-in effect
+        on page load using CSS
+    </b>
+      
+    <p>
+        This page will fade in
+        after loading
+    </p>
+</body>
+  
+</html>                    
+
+
+{% endblock %}

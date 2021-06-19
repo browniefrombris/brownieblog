@@ -24,3 +24,6 @@ def fader():
 def fader2():
 	return render_template('fader2.html')
 
+@app.route('/fader3')
+def fader3():
+	return render_template('fader3.html')

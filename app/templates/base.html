@@ -13,10 +13,10 @@
 
     </head>
     <body style="padding-left: 20%; padding-right: 20%;">
-        <div>
+        <nav>
 
             <a href="/index">
-                <img style="display: inline; vertical-align: middle;" alt="logo" src="{{url_for('static', filename='/images/B_logo.ico')}}" width="20" height ="20"></a>
+                <img style="display: inline; vertical-align: middle;" alt="logo" src="{{url_for('static', filename='/images/B_logo.ico')}}" width="20px" height ="20px"></a>
             
             <div style="display:inline; vertical-align:middle">
             BrownieBlog
@@ -26,11 +26,15 @@
             <a href="/fader2">Fader2</a>
             <a href="/fader3">Fader3</a>
             </div>
-
+            
             <a href="https://github.com/browniefrombris/brownieblog">
-                <img style="vertical-align: middle; float: right;" alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20" style="float:right"></a>
+                <img style="float: right;" alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
+            <input style="float: right; margin: 0px 10px;" type="text" placeholder="Search..." >
+            
 
-        </div>
+            
+            
+        </nav>
 
         <!-- <hr style="width:50%; height:2px; border-width:0; color:black; background-color:black">  -->
 
@@ -38,4 +42,3 @@
         
     </body>
 </html>
-

@@ -1,0 +1,34 @@
+{% extends 'bootstrap/base.html' %}
+
+
+
+{% block title %}
+    {% if title %}
+    <title>{{ title }} - BrownieBlog</title>
+    {% else %}
+    <title>Welcome to BrownieBlog</title>
+    {% endif %}
+{% endblock %}
+
+{% block body -%}
+    <a href="/index">
+                <img style="display: inline; vertical-align: middle;" alt="logo" src="{{url_for('static', filename='/images/B_logo.ico')}}" width="20px" height ="20px"></a>
+            
+            <div style="display:inline; vertical-align:middle">
+            BrownieBlog
+            <a href="/index">Home</a>
+            <a href="/catalogue">Catalogue</a>
+            <a href="/fader">Fader</a>
+            <a href="/fader2">Fader2</a>
+            <a href="/fader3">Fader3</a>
+            </div>
+
+            <a href="https://github.com/browniefrombris/brownieblog">
+                <img style="vertical-align: middle; float: right;" alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20" style="float:right"></a>
+
+{% block content -%}
+{%- endblock content %}
+{%- endblock body %}
+
+
+

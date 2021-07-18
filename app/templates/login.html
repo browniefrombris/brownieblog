@@ -1,0 +1,76 @@
+<head>
+    <style>
+         input[type=submit]{
+            background-color: rgb(91, 91, 91);
+            color: white;
+            border-radius: 25px;
+            border-style: solid;
+            border-width: 1;
+            border-color: rgb(213, 213, 213, 213);
+            width: 255.6;
+            height: 30;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 0;
+        }
+
+        #submit:hover{
+            background-color: rgb(91, 91, 91);
+        }
+
+        #submit:active{
+            border-color: rgb(91, 91, 91);
+        }
+
+        #username, #password{
+            padding: 0 12;
+            border-radius: 25px;
+            border-color: rgb(213, 213, 213);
+            border-style: solid;
+            border-width: 1;
+            height: 30;
+            transition: all 0.2s ease;
+        }
+
+        #username:hover, #password:hover {
+            border-color: rgb(91, 91, 91)
+        }
+
+        #username:focus, #password:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+            border-color: rgb(21, 156, 228);
+        }
+        
+    </style>
+</head>
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h3 style="text-align: center;">Sign In</h3>
+    <div style="width: 255.6; margin: 20 auto;">
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                <!-- {{ form.username.label }}<br> -->
+                {{ form.username(size=32)}}
+                {% for error in form.username.errors %}
+                <span style="color: rgb(21, 156, 228);">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                <!-- {{ form.password.label }}<br> -->
+                {{ form.password(size=32) }}
+                {% for error in form.password.errors %}
+                <span style="color: rgb(21, 156, 228);">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}
+
+
+

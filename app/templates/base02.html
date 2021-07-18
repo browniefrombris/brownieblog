@@ -3,6 +3,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.45/dist/themes/base.css">
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.45/dist/shoelace.js"></script>
 
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='styles/main.css')}}"> -->
+        
+    <!-- The below line operates the same as the above:
+        <link rel="stylesheet" href="/static/styles/main.css"> -->
+
     {% if title %}
     <title>{{ title }} - BrownieBlog</title>
     {% else %}
@@ -37,10 +42,11 @@
             left: 0;
             bottom: 0;
             width: 100%;
+            background-color: rgb(255, 255, 255);
             color: rgb(0, 0, 0);
-            text-align: left;
+            text-align: center;
             font-size: 12;
-            padding: 10;
+            margin-bottom: 10;
         }
                             
         a {padding: 0 3px;}
@@ -48,56 +54,41 @@
 
         body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
 
-       
-        
     </style>
 </head>
 
-<body style="padding: 0 20%; background-color: rgb(253, 248, 242);">
+
+<body style="padding: 0 20%;">
 
     <div class="flex-container">
         <div style="justify-content: flex-start;">
-            <h1 style="padding-bottom: 5px;">BrownieBlog</h1>
+            <b>BrownieBlog</b>
+            <!-- <a href="/Google Drive/Coding/Web Development/header_test.html">
+                <img src="/Google Drive/Coding/Favicons/B_logo.png" alt="img" height="22.88px" width="22.88px">
+            </a> -->
+            <a href="/index">Home</a>
+            <a href="/catalogue">Catalogue</a>
+            <a href="/fader">Fader</a>
+            <a href="/fader2">Fader2</a>
+            <a href="/fader3">Fader3</a>
         </div>
+
+        <div style="justify-content: center;">***</div>
 
         <div style="justify-content: flex-end;">
-            <sl-input placeholder="Search..." size="small" pill>
-                <sl-icon name="search" slot="prefix"></sl-icon>
-            </sl-input>
-            
+            <input type="text" placeholder="Search..." style="margin-right: 5px;">
             <a href="https://github.com/browniefrombris/brownieblog">
-                <img style="display: inline; vertical-align: middle; padding: 0 10 2 10;"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
-            
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('login') }}">Login</a>
-
+                <img style="display: inline; vertical-align: middle;"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
         </div>
-
     </div>
-
-    
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
-    
-
+        
     {% block content %}{% endblock %}
 
-    <div style="color: rgb(137, 137, 137); background-color: black;" class="footer">
-        <a href="https://shoelace.style/">
-            <img style="vertical-align:-5px; margin-left: 0;" alt="shoelace" src="{{url_for('static', filename='shoelace.svg')}}" width="60" height ="auto" >
-        </a>
+    <div style="color: rgb(137, 137, 137);" class="footer">
+        Design by
+        <img style="vertical-align:-5px; margin-left: 0;" alt="shoelace" src="{{url_for('static', filename='shoelace.svg')}}" width="60" height ="auto" >
     </div>
 
 </body>
 </head>
 </html>
-
-
-

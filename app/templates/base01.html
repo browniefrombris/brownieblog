@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/main.css')}}">
+        
+        <!-- The below line operates the same as the above:
+            <link rel="stylesheet" href="/static/styles/main.css"> -->
+
+        {% if title %}
+        <title>{{ title }} - BrownieBlog</title>
+        {% else %}
+        <title>Welcome to BrownieBlog</title>
+        {% endif %}
+
+        <style>
+            a {padding: 0 10 0 0;}
+        </style>
+        
+    </head>
+
+
+    <body style="padding-left: 20%; padding-right: 20%;">
+ 
+        <nav style="display: flex; justify-content: space-between; padding: 10 0;">
+                      
+            <!-- BrownieBlog -->
+            <div style="width: 200px; display: flex; justify-content: flex-start;">
+                <a href="/index">Home</a>
+                <a href="/catalogue">Catalogue</a>
+                <a href="/fader">Fader</a>
+                <a href="www.google.com">Google</a>
+           </div>
+
+            <div style="width: 200px; display: flex; justify-content: center;">
+                <a href="/index">
+                    <img style="display: inline; vertical-align: middle;" alt="logo" src="{{url_for('static', filename='/images/B_logo.ico')}}" width="20px" height ="20px"></a>
+            </div>
+            
+            <div style="width: 200px; display: flex; justify-content: flex-end;">
+                <input type="text" placeholder="Search.." style="margin-right: 5px;">
+                <a href="https://github.com/browniefrombris/brownieblog">
+                    <img style="display: inline; vertical-align: middle;"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
+            </div>
+
+            
+            
+        </nav>
+
+        <!-- <hr style="width:50%; height:2px; border-width:0; color:black; background-color:black">  -->
+
+    </body>
+
+    <body style="padding-left: 20%; padding-right: 20%;">
+        
+        <nav style="display: flex; justify-content: space-between; padding: 10 0;">
+
+            <!-- BrownieBlog -->
+            <div style="width: 200px; display: flex; justify-content: flex-start;">
+                <a href="/index">Home</a>
+                <a href="/catalogue">Catalogue</a>
+                <a href="/fader">Fader</a>
+                <a href="/fader2">Fader2</a>
+                <a href="/fader3">Fader3</a>
+            </div>
+            
+            <div style="width: 200px; display: flex; justify-content: center;">
+                <a href="/index">
+                    <img style="display: inline; vertical-align: middle;" alt="logo" src="{{url_for('static', filename='/images/B_logo.ico')}}" width="20px" height ="20px"></a>
+            </div>
+
+            <div style="width: 200px; display: flex; justify-content: flex-end;">
+                <a href="https://github.com/browniefrombris/brownieblog">
+                    <img style="display: inline; vertical-align: middle;" alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
+                <input style="margin: 0px 5px;" type="text" placeholder="Search..." >
+            </div>
+
+            
+            
+        </nav>
+
+        <!-- <hr style="width:50%; height:2px; border-width:0; color:black; background-color:black">  -->
+
+        {% block content %}{% endblock %}
+        
+    </body>
+</html>

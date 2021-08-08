@@ -1,13 +1,29 @@
 from app import app, db
-from app.forms import LoginForm
+from app.forms import LoginForm, PostForm
+# from app.forms import DeleteContent
+from app.models import Post, User
 from flask import render_template, send_from_directory, url_for, flash, redirect
 import os
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
-	user = {'username': 'Alexander'}
-	return render_template('index.html', title='Home', user=user)
+    form = PostForm()
+    user = {'username': 'Alexander'}
+    # delete = DeleteContent()
+
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=User.query.get(1))
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live!')
+        return redirect(url_for('index'))
+    posts = Post.query.all()
+
+    return render_template('index.html', title='Home', user=user, form=form, posts=posts)
+
+	
+
 
 @app.route('/favicon.ico')
 def favicon():

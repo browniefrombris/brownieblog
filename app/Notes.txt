@@ -1,0 +1,26 @@
+Deleting all rows in sqlite database:
+
+    from app import app, db
+    from app.models import User, Post
+
+    u = User(username='john', email='john@example.com')
+    db.session.add(u)
+    db.session.commit()
+
+    p = Post(body='my first post!', author = u)
+    db.session.add(p)
+    db.session.commit
+
+    u
+    <User john | Email john@example.com>
+
+    p
+    <User 1 | Post my first post!>
+
+    User.query.delete()
+    1
+
+    Post.query.delete()
+    1
+
+    db.session.commit()

@@ -1,3 +1,34 @@
+<head> 
+    <style> 
+         input[type=submit]{
+            background-color: rgb(91, 91, 91);
+            color: white;
+            border-radius: 25px;
+            border-style: solid;
+            border-width: 1;
+            border-color: rgb(213, 213, 213, 213);
+            width: 255.6;
+            height: 30;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 0;
+         }
+
+         #post{
+            width: 100%;
+            height: 30;
+            padding: 0 0;
+            margin: 10 0;
+            border-color: rgb(213, 213, 213);
+            border-style: solid;
+            border-width: 1;
+            
+            transition: all 0.2s ease;
+         }
+
+    </style>
+</head>
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -11,15 +42,33 @@
     </a> -->
 
 
-    <sl-form class="form-overview">
-        <sl-input name="name" type="text" label="Post"></sl-input>
-    
 
-    <h1>Today's updates are below:</h1>
-    <h2> 
-        What is Lorem Ipsum?
-    </h2> 
-    <p>  
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+
+            {{ form.post.label }}<br>
+            {{ form.post(cols=32, rows=4) }}<br>
+            {% for error in form.post.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+        {{ form.submit() }}
+        </form>
+
+
+    <b>Posts:<br></b>
+<!-- 
+Posting with "x says y": -->
+        <!-- {% for post in posts %}
+        <p>
+        {{ post.author.username }} says: <b>{{ post.body }}</b>
+        </p>
+        {% endfor %} -->
+
+        {% for post in posts %}
+        {{ post.body }} <br>
+        {% endfor %}
+
 
 {% endblock %}

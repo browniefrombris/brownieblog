@@ -2,8 +2,9 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.45/dist/themes/base.css">
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.45/dist/shoelace.js"></script>
+    <script src="https://kit.fontawesome.com/63200af190.js" crossorigin="anonymous"></script>
 
-    {% if title %}
+        {% if title %}
     <title>{{ title }} - BrownieBlog</title>
     {% else %}
     <title>Welcome to BrownieBlog</title>
@@ -13,7 +14,6 @@
         .flex-container{
             display: flex;
             justify-content: space-between;
-            align-items: center;
             padding: 10 0;
             /* background-color: cadetblue; */
             align-items: stretch;
@@ -25,11 +25,11 @@
             margin: 0 px;
             padding: 0 px;
             font-size: 15px;
-            width: 300px;
+            width: 350px;
             /* flex: 1 0 200px; */
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items:center;
         }
 
         .footer {
@@ -42,11 +42,44 @@
             font-size: 12;
             padding: 10;
         }
+
+        #searchid{
+            color: rgb(91, 91, 91);
+            margin: 0 0 0 8;
+            padding: 0 0 0 30;
+            border-radius: 25px;
+            border-color: rgb(213, 213, 213);
+            border-style: solid;
+            border-width: 1;
+            height: 30;
+            transition: all 0.2s ease;   
+            background-image: url(/static/search_icon.png);        
+            background-repeat: no-repeat;
+            background-position: 7px;
+            background-size: 20px 20px;
+        }
+
+        #searchid:hover {
+            border-color: rgb(91, 91, 91)
+        }
+
+        #searchid:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+            border-color: rgb(21, 156, 228);
+        }
                             
         a {padding: 0 3px;}
         /* img{vertical-align: middle;} */
 
         body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
+
+        ::placeholder {
+            color: rgb(91, 91, 91);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 15;
+            transform: translateY(1px);
+        }
 
        
         
@@ -54,19 +87,25 @@
 </head>
 
 <body style="padding: 0 20%; background-color: rgb(253, 248, 242);">
-
+    
     <div class="flex-container">
         <div style="justify-content: flex-start;">
             <h1 style="padding-bottom: 5px;">BrownieBlog</h1>
         </div>
 
+
+
         <div style="justify-content: flex-end;">
-            <sl-input placeholder="Search..." size="small" pill>
+            <!-- <sl-input placeholder="Search..." size="small" pill>
                 <sl-icon name="search" slot="prefix"></sl-icon>
             </sl-input>
-            
+             -->
+            <form style="margin: 0;">
+                <input type="text" id="searchid" placeholder="Search..."><br>
+            </form>
+
             <a href="https://github.com/browniefrombris/brownieblog">
-                <img style="display: inline; vertical-align: middle; padding: 0 10 2 10;"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
+                <img style="display: inline; vertical-align: middle; padding: 0 5 0 5;"alt="github" src="{{url_for('static', filename='github.png')}}" width="20" height ="20"></a>
             
             <a href="{{ url_for('index') }}">Home</a>
             <a href="{{ url_for('login') }}">Login</a>
@@ -75,7 +114,6 @@
 
     </div>
 
-    
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul>
@@ -87,7 +125,13 @@
     {% endwith %}
     
 
-    {% block content %}{% endblock %}
+    {% block content %}
+    <!-- CONTENT -->
+    {% endblock %}
+
+    <a href="{{ url_for('clear_database') }}">Delete all posts</a>
+
+
 
     <div style="color: rgb(137, 137, 137); background-color: black;" class="footer">
         <a href="https://shoelace.style/">

@@ -1,3 +1,4 @@
+from wtforms.fields.simple import SubmitField
 from app import app, db
 from app.forms import LoginForm, PostForm
 # from app.forms import DeleteContent
@@ -10,7 +11,6 @@ import os
 def index():
     form = PostForm()
     user = {'username': 'Alexander'}
-    # delete = DeleteContent()
 
     if form.validate_on_submit():
         post = Post(body=form.post.data, author=User.query.get(1))
@@ -18,11 +18,17 @@ def index():
         db.session.commit()
         flash('Your post is now live!')
         return redirect(url_for('index'))
+    
     posts = Post.query.all()
 
     return render_template('index.html', title='Home', user=user, form=form, posts=posts)
 
-	
+@app.route('/clear_database', methods=['GET', 'POST'])
+def clear_database():
+    Post.query.delete()
+    db.session.commit()
+    return redirect(url_for('index'))
+
 
 
 @app.route('/favicon.ico')
@@ -52,3 +58,5 @@ def login():
         flash('Login requested for user {}, remember_me={}'.format(form.username.data, form.remember_me.data))
         return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
+
+

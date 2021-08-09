@@ -6,7 +6,6 @@ from flask import render_template, send_from_directory, url_for, flash, redirect
 import os
 
 @app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
 def index():
     form = PostForm()
     user = {'username': 'Alexander'}
@@ -17,13 +16,9 @@ def index():
         db.session.add(post)
         db.session.commit()
         flash('Your post is now live!')
-        return redirect(url_for('index'))
+
     posts = Post.query.all()
-
     return render_template('index.html', title='Home', user=user, form=form, posts=posts)
-
-	
-
 
 @app.route('/favicon.ico')
 def favicon():

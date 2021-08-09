@@ -58,6 +58,7 @@
 
 
     <b>Posts:<br></b>
+   
 <!-- 
 Posting with "x says y": -->
         <!-- {% for post in posts %}
@@ -69,6 +70,30 @@ Posting with "x says y": -->
         {% for post in posts %}
         {{ post.body }} <br>
         {% endfor %}
+
+        <div>
+            <br>
+        </div>
+        <form action="{{ url_for('clear_database') }}">
+            <input type="submit" value="Delete all posts form button" />
+        </form>
+
+        
+        <!-- <script>
+            function myFunction(){
+                Post.query.delete()
+                db.session.commit()
+                return redirect(url_for('index'))
+            } 
+        </script> -->
+<!-- 
+        <form method="POST" action="DAP.py">
+            <input type="button" name="Delete all posts" value="Delete all posts"/>
+        </form> -->
+
+        <!-- <button onclick="myFunction()">Delete all posts</button> -->
+
+       
 
 
 {% endblock %}

@@ -1,7 +1,7 @@
 <head> 
     <style> 
          input[type=submit]{
-            background-color: rgb(91, 91, 91);
+            background-color: rgb(0, 0, 0);
             color: white;
             border-radius: 25px;
             border-style: solid;
@@ -48,7 +48,7 @@
         {{ form.hidden_tag() }}
 
             {{ form.post.label }}<br>
-            {{ form.post(cols=32, rows=4) }}<br>
+            {{ form.post(cols=32, rows=1) }}<br>
             {% for error in form.post.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
@@ -75,7 +75,7 @@ Posting with "x says y": -->
             <br>
         </div>
         <form action="{{ url_for('clear_database') }}">
-            <input type="submit" value="Delete all posts form button" />
+            <input type="submit" value="Delete all posts" />
         </form>
 
         
@@ -93,7 +93,8 @@ Posting with "x says y": -->
 
         <!-- <button onclick="myFunction()">Delete all posts</button> -->
 
-       
-
+        <h1>
+        <a href="{{ url_for('recipes') }}">Recipes</a>
+        
 
 {% endblock %}

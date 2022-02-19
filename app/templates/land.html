@@ -1,0 +1,61 @@
+<html>
+
+<!-- Landing Page -->
+
+<head>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+        
+        .basic{
+        font-family: 'Playfair Display', serif;
+        font-weight: 300;
+        font-size: 24;
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 50px;
+        }
+
+    </style>
+
+
+</head>
+
+
+
+<body 
+    style="
+        margin: auto; 
+        width: 70%; 
+        height: 100vh; 
+        position: relative;
+        "
+>
+
+    <div
+        style="
+            padding-top: 10%;
+            width: 400px;
+            "
+    >
+
+        <p class="basic">
+            Hi. <br>
+            You've ended up at BrownieBlog. <br>
+            Are you interested in... <br>
+
+            <a style="padding-left: 60%; font-weight: 1000; text-decoration: none; color: black;" href="{{ url_for('index') }}">Notes</a><br>
+            <a style="padding-left: 60%; font-weight: 1000; text-decoration: none; color: black;" href="{{ url_for('recipes') }}">Recipes</a><br>
+
+            <p class="basic" style="padding-left: 80%;">...?</p>
+        </p>
+
+    </div>
+
+    <img
+    alt="white_pen" 
+    src="{{url_for('static', filename='images/Fountain Pen white with stroke.png')}}" width="75" height ="75"
+    style="right: 0; bottom: 10; position: absolute;"
+    >
+
+</body>

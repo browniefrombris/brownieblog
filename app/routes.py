@@ -58,4 +58,11 @@ def login():
         return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
 
+@app.route('/recipes')
+def recipes():
+	return render_template('recipes.html')
+
+@app.route('/land')
+def land():
+	return render_template('land.html')
 
